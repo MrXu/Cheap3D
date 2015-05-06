@@ -1,0 +1,8 @@
+#ignore the following files
+activator
+activator-launch-1.3.2.jar
+activator.bat
+build.sbt
+logs
+target
+test

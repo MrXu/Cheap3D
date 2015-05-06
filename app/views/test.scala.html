@@ -1,0 +1,27 @@
+@(name:String)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@name</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/hello.js")" type="text/javascript"></script>
+    </head>
+    <body>
+        Hello, @name
+        
+        @helper.form(action = routes.Application.upload, 'enctype -> "multipart/form-data") {
+    
+            <input type="file" name="picture">
+            
+            <p>
+                <input type="submit">
+            </p>
+            
+        }
+        
+    </body>
+</html>
+
