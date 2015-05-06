@@ -1,4 +1,4 @@
-@(filename:String)(objId:Long)
+@(filename:String)(objId:Long)(thicknessForm:Form[thickness])
 
 @base(title="Your OBJ model"){
 
@@ -8,7 +8,18 @@
     <div class="col-lg-4">
         <h4>You are about to convert the following OBJ file:</h4>
         <h3>@filename<br><small>Please click the following button to start converting</small></h3>
-        <a href='@routes.Application.convertObjFile(objId)' class="btn btn-success">Convert To STL</a>
+        
+        @helper.form(action = routes.Application.convertObjFile(objId),'id -> "thicknessForm") {
+    
+            @helper.inputText(thicknessForm("layerthickness"))
+            
+            @helper.inputText(thicknessForm("minthickness"))
+            
+            <input type="submit" class="btn btn-success" value="Convert to STL">
+            
+        }
+        
+        <!--<a href='@routes.Application.convertObjFile(objId)' class="btn btn-success">Convert To STL</a>-->
     </div>
 </div>
 

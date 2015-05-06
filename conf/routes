@@ -18,7 +18,8 @@ POST    /upload/                    controllers.Application.upload()
 GET     /objModel/:id               controllers.Application.showObj(id:Long)
 
 #Convert obj file to stl file
-GET     /convert/obj/:id            controllers.Application.convertObjFile(id:Long)
+#GET     /convert/obj/:id            controllers.Application.convertObjFile(id:Long)
+POST    /convert/obj/:id            controllers.Application.convertObjFile(id:Long)
 
 #download stl page
 GET     /download/stl/:id           controllers.Application.downloadStls(id:Long)
