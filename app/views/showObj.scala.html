@@ -11,9 +11,15 @@
         
         @helper.form(action = routes.Application.convertObjFile(objId),'id -> "thicknessForm") {
     
-            @helper.inputText(thicknessForm("layerthickness"))
+            @helper.inputText(thicknessForm("layerthickness"),
+                '_label -> "Thickness of Layer",
+                'placeholder -> "0.5",
+                'class -> "form-control")
             
-            @helper.inputText(thicknessForm("minthickness"))
+            @helper.inputText(thicknessForm("minthickness"),
+                '_label -> "Minimum Thickness Required By Printer",
+                'placeholder -> "0.1",
+                'class -> "form-control")
             
             <input type="submit" class="btn btn-success" value="Convert to STL">
             

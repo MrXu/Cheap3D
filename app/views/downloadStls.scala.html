@@ -1,4 +1,4 @@
-@(stlName:String)
+@(stlName:String)(objId:Long)
 
 @base(title="Download Stl"){
 
@@ -9,6 +9,8 @@
         <h4>You are about to download the following files:</h4>
         <h3>@stlName<br><small>Please click the following link to start download</small></h3>
         <a href="/assets/UploadedFiles/stl/@stlName" class="btn btn-success btn-lg">Download</a>    
+        <p>or</p>
+        <a href="@routes.Application.showObj(objId)">Re-adjust Thickness</a>
     </div>
 </div>
 

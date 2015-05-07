@@ -107,11 +107,23 @@ public class Application extends Controller {
         try{
             objFile obj = objFile.find.byId(id);
             
+            float layerthickness;
+            float minthickness;
+            
             //get thickness info
             Form<thickness> filledThicknessForm = thicknessForm.bindFromRequest();
-            thickness newTKsetting = filledThicknessForm.get();
-            float layerthickness = newTKsetting.getlayerthickness();
-            float minthickness = newTKsetting.getminthickness();
+            
+            //if form error, assign default value
+            if(filledThicknessForm.hasErrors()){
+                layerthickness = 0.5f;
+                minthickness = 0.1f;
+            }else{
+                thickness newTKsetting = filledThicknessForm.get();
+                layerthickness = newTKsetting.getlayerthickness();
+                minthickness = newTKsetting.getminthickness();
+            }
+            
+                
             //console info
             System.out.println("layer thickness is set to be "+layerthickness);
             System.out.println("minimum thickness is set to be "+minthickness);
@@ -185,8 +197,10 @@ public class Application extends Controller {
     public static Result downloadStls(Long id){
         try{
             stlFile stl = stlFile.find.byId(id);
+            objFile obj = stl.objfile;
+            Long objId = obj.id;
             String stlName = stl.fileName;
-            return ok(downloadStls.render(stlName));
+            return ok(downloadStls.render(stlName, objId));
         }
         catch(NullPointerException e) {
             return notFound("<h1>Page not found</h1>").as("text/html");

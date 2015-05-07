@@ -51,7 +51,8 @@ public class Rotation {
              */
             //first, rotate around x; cos and sin computed based on baseNormal
             cosAroundX = (float)baseNorm.y/(float)Math.sqrt(baseNorm.y*baseNorm.y+baseNorm.z*baseNorm.z);
-            sinAroundX = -(float)baseNorm.z/(float)Math.sqrt(baseNorm.y*baseNorm.y+baseNorm.z*baseNorm.z);
+            // sinAroundX = -(float)baseNorm.z/(float)Math.sqrt(baseNorm.y*baseNorm.y+baseNorm.z*baseNorm.z);
+            sinAroundX = (float)baseNorm.z/(float)Math.sqrt(baseNorm.y*baseNorm.y+baseNorm.z*baseNorm.z);
 
             //second, rotate around z; cos and sin computed based on baseNormal
             sinAroundZ = (float)baseNorm.x/baseNormLength;
